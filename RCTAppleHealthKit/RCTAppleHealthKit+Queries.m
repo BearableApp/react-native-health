@@ -608,24 +608,24 @@
                     NSString *valueString;
 
                     switch (val) {
-                      case HKCategoryValueSleepAnalysisInBed:
+                      case HKCategoryValueSleepAnalysisInBed // 0:
                         valueString = @"INBED";
                       break;
-                      case HKCategoryValueSleepAnalysisAsleep:
+                      case HKCategoryValueSleepAnalysisAsleep: // 1 -> now unspecified
                         valueString = @"ASLEEP";
                       break;
 
                       // watchOS 9 and iOS 16 introduce Core, Deep, REM, and Awake phases of sleep.
-                      case HKCategoryValueSleepAnalysisAsleepCore:
+                      case 3: //HKCategoryValueSleepAnalysisAsleepCore:
                         valueString = @"CORE";
                       break;
-                      case HKCategoryValueSleepAnalysisAsleepDeep:
+                      case 4; //HKCategoryValueSleepAnalysisAsleepDeep:
                         valueString = @"DEEP";
                       break;
-                      case HKCategoryValueSleepAnalysisAsleepREM:
+                      case 5: //HKCategoryValueSleepAnalysisAsleepREM:
                         valueString = @"REM";
                       break;
-                      case HKCategoryValueSleepAnalysisAwake:
+                      case 2: //HKCategoryValueSleepAnalysisAwake:
                         valueString = @"AWAKE";
                       break;
 
