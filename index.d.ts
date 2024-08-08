@@ -155,6 +155,14 @@ declare module 'react-native-health' {
       callback: (err: HKErrorResponse, results: AnchoredQueryResults) => void,
     ): void
 
+    getAnchoredStepCount(
+      options: HealthInputOptions,
+      callback: (
+        err: HKErrorResponse,
+        results: AnchoredStepCountQueryResults,
+      ) => void,
+    ): void
+
     getDailyStepCountSamples(
       options: HealthInputOptions,
       callback: (err: string, results: Array<HealthValue>) => void,
