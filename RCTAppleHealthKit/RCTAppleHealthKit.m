@@ -265,6 +265,12 @@ RCT_EXPORT_METHOD(getDailyStepCountSamples:(NSDictionary *)input callback:(RCTRe
     [self fitness_getDailyStepSamples:input callback:callback];
 }
 
+RCT_EXPORT_METHOD(getAnchoredStepCount:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self _initializeHealthStore];
+    [self fitness_getAnchoredQuery:input callback:callback];
+}
+
 RCT_EXPORT_METHOD(saveSteps:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self _initializeHealthStore];
