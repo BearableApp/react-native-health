@@ -155,6 +155,14 @@ declare module 'react-native-health' {
       callback: (err: HKErrorResponse, results: AnchoredQueryResults) => void,
     ): void
 
+    getAnchoredStepCount(
+      options: HealthInputOptions,
+      callback: (
+        err: HKErrorResponse,
+        results: AnchoredStepCountQueryResults,
+      ) => void,
+    ): void
+
     getDailyStepCountSamples(
       options: HealthInputOptions,
       callback: (err: string, results: Array<HealthValue>) => void,
@@ -462,7 +470,6 @@ declare module 'react-native-health' {
       callback: (error: string, result: HealthValue) => void,
     ): void
 
-
     Constants: Constants
   }
 
@@ -497,6 +504,11 @@ declare module 'react-native-health' {
 
   export interface HealthValue extends BaseValue {
     value: number
+  }
+
+  export interface HealthValueWithSource extends BaseValue {
+    value: number
+    sourceName: string
   }
 
   export interface BloodPressureSampleValue extends BaseValue {
@@ -546,7 +558,7 @@ declare module 'react-native-health' {
     PausedOrResumeRequest = 'pause or resume request',
     Lap = 'lap',
     Segment = 'segment',
-    Marker = 'marker'
+    Marker = 'marker',
   }
 
   export type HKWorkoutEventType = {
@@ -855,6 +867,11 @@ declare module 'react-native-health' {
   export interface AnchoredQueryResults {
     anchor: string
     data: Array<HKWorkoutQueriedSampleType>
+  }
+
+  export interface AnchoredStepCountQueryResults {
+    anchor: string
+    data: Array<HealthValueWithSource>
   }
 
   export interface WorkoutRouteQueryResults {

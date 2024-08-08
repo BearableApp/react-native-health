@@ -64,6 +64,12 @@
                         limit:(NSUInteger)lim
                    completion:(void (^)(NSDictionary *, NSError *))completion;
 
+- (void)fetchAnchoredStepCount:(HKSampleType *)type
+                    predicate:(NSPredicate *)predicate
+                       anchor:(HKQueryAnchor *)anchor
+                        limit:(NSUInteger)lim
+                   completion:(void (^)(NSDictionary *, NSError *))completion;
+
 - (void)fetchQuantitySamplesOfType:(HKQuantityType *)quantityType
                               unit:(HKUnit *)unit
                          predicate:(NSPredicate *)predicate
