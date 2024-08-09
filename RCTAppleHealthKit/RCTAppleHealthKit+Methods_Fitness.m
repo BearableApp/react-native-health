@@ -445,6 +445,7 @@
     
     HKSampleType *stepType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     HKQueryAnchor *anchor = [RCTAppleHealthKit hkAnchorFromOptions:input];
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[HKUnit countUnit]];
     NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
     NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
     
@@ -465,9 +466,10 @@
         }
     };
 
-    [self fetchAnchoredStepCount:stepType
+    [self fetchAnchoredQuantity:stepType
                       predicate:predicate
                          anchor:anchor
+                           unit:unit
                           limit:limit
                      completion:completion];
 }

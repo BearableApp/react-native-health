@@ -40,4 +40,5 @@
 - (void)body_getLeanBodyMassSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)body_saveLeanBodyMass:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
+- (void)body_getAnchoredBodyMassQuery: (NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 @end

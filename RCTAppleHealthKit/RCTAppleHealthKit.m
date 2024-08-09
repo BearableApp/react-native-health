@@ -271,6 +271,48 @@ RCT_EXPORT_METHOD(getAnchoredStepCount:(NSDictionary *)input callback:(RCTRespon
     [self fitness_getAnchoredQuery:input callback:callback];
 }
 
+RCT_EXPORT_METHOD(getAnchoredBodyMass:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self _initializeHealthStore];
+    [self body_getAnchoredBodyMassQuery:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getAnchoredBodyTemperature:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self _initializeHealthStore];
+    [self vitals_getAnchoredBodyTemperatureQuery:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getAnchoredHeartRate:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self _initializeHealthStore];
+    [self vitals_getAnchoredHeartRateQuery:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getAnchoredRestingHeartRate:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self _initializeHealthStore];
+    [self vitals_getAnchoredRestingHeartRateQuery:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getAnchoredHeartRateVariability:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self _initializeHealthStore];
+    [self vitals_getAnchoredHeartRateVariabilityQuery:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getAnchoredBloodPressure:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self _initializeHealthStore];
+    [self vitals_getAnchoredBloodPressureQuery:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getAnchoredSleep:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self _initializeHealthStore];
+    [self sleep_getAnchoredSleepQuery:input callback:callback];
+}
+
 RCT_EXPORT_METHOD(saveSteps:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self _initializeHealthStore];

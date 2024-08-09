@@ -159,7 +159,63 @@ declare module 'react-native-health' {
       options: HealthInputOptions,
       callback: (
         err: HKErrorResponse,
-        results: AnchoredStepCountQueryResults,
+        results: AnchoredQuantityQueryResults,
+      ) => void,
+    ): void
+
+    getAnchoredBodyMass(
+      options: HealthInputOptions,
+      callback: (
+        err: HKErrorResponse,
+        results: AnchoredQuantityQueryResults,
+      ) => void,
+    ): void
+
+    getAnchoredBodyTemperature(
+      options: HealthInputOptions,
+      callback: (
+        err: HKErrorResponse,
+        results: AnchoredQuantityQueryResults,
+      ) => void,
+    ): void
+
+    getAnchoredHeartRate(
+      options: HealthInputOptions,
+      callback: (
+        err: HKErrorResponse,
+        results: AnchoredQuantityQueryResults,
+      ) => void,
+    ): void
+
+    getAnchoredRestingHeartRate(
+      options: HealthInputOptions,
+      callback: (
+        err: HKErrorResponse,
+        results: AnchoredQuantityQueryResults,
+      ) => void,
+    ): void
+
+    getAnchoredHeartRateVariability(
+      options: HealthInputOptions,
+      callback: (
+        err: HKErrorResponse,
+        results: AnchoredQuantityQueryResults,
+      ) => void,
+    ): void
+
+    getAnchoredBloodPressure(
+      options: HealthInputOptions,
+      callback: (
+        err: HKErrorResponse,
+        results: AnchoredBloodPressureQueryResults,
+      ) => void,
+    ): void
+
+    getAnchoredSleep(
+      options: HealthInputOptions,
+      callback: (
+        err: HKErrorResponse,
+        results: AnchoredQuantityQueryResults,
       ) => void,
     ): void
 
@@ -869,9 +925,14 @@ declare module 'react-native-health' {
     data: Array<HKWorkoutQueriedSampleType>
   }
 
-  export interface AnchoredStepCountQueryResults {
+  export interface AnchoredQuantityQueryResults {
     anchor: string
     data: Array<HealthValueWithSource>
+  }
+
+  export interface AnchoredBloodPressureQueryResults {
+    anchor: string
+    data: Array<BloodPressureSampleValue>
   }
 
   export interface WorkoutRouteQueryResults {

@@ -642,4 +642,186 @@
      }
  }
 
+- (void)vitals_getAnchoredHeartRateQuery:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+    
+    HKUnit *count = [HKUnit countUnit];
+    HKUnit *minute = [HKUnit minuteUnit];
+
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[count unitDividedByUnit:minute]];
+
+    HKSampleType *hrType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+    HKQueryAnchor *anchor = [RCTAppleHealthKit hkAnchorFromOptions:input];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    
+    NSPredicate *predicate = [RCTAppleHealthKit predicateForAnchoredQueries:anchor startDate:startDate endDate:endDate];
+
+    void (^completion)(NSDictionary *results, NSError *error);
+
+    completion = ^(NSDictionary *results, NSError *error) {
+        if (results){
+            callback(@[[NSNull null], results]);
+
+            return;
+        } else {
+            NSLog(@"error getting samples: %@", error);
+            callback(@[RCTMakeError(@"error getting samples", error, nil)]);
+
+            return;
+        }
+    };
+
+    [self fetchAnchoredQuantity:hrType
+                      predicate:predicate
+                         anchor:anchor
+                           unit:unit
+                          limit:limit
+                     completion:completion];
+}
+
+- (void)vitals_getAnchoredRestingHeartRateQuery:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+    
+    HKUnit *count = [HKUnit countUnit];
+    HKUnit *minute = [HKUnit minuteUnit];
+
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[count unitDividedByUnit:minute]];
+
+    HKSampleType *hrType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierRestingHeartRate];
+    HKQueryAnchor *anchor = [RCTAppleHealthKit hkAnchorFromOptions:input];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    
+    NSPredicate *predicate = [RCTAppleHealthKit predicateForAnchoredQueries:anchor startDate:startDate endDate:endDate];
+
+    void (^completion)(NSDictionary *results, NSError *error);
+
+    completion = ^(NSDictionary *results, NSError *error) {
+        if (results){
+            callback(@[[NSNull null], results]);
+
+            return;
+        } else {
+            NSLog(@"error getting samples: %@", error);
+            callback(@[RCTMakeError(@"error getting samples", error, nil)]);
+
+            return;
+        }
+    };
+
+    [self fetchAnchoredQuantity:hrType
+                      predicate:predicate
+                         anchor:anchor
+                            unit:unit
+                          limit:limit
+                     completion:completion];
+}
+
+- (void)vitals_getAnchoredHeartRateVariabilityQuery:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+    
+    HKSampleType *hrvType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRateVariabilitySDNN];
+    HKQueryAnchor *anchor = [RCTAppleHealthKit hkAnchorFromOptions:input];
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[HKUnit secondUnit]];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    
+    NSPredicate *predicate = [RCTAppleHealthKit predicateForAnchoredQueries:anchor startDate:startDate endDate:endDate];
+
+    void (^completion)(NSDictionary *results, NSError *error);
+
+    completion = ^(NSDictionary *results, NSError *error) {
+        if (results){
+            callback(@[[NSNull null], results]);
+
+            return;
+        } else {
+            NSLog(@"error getting samples: %@", error);
+            callback(@[RCTMakeError(@"error getting samples", error, nil)]);
+
+            return;
+        }
+    };
+
+    [self fetchAnchoredQuantity:hrvType
+                      predicate:predicate
+                         anchor:anchor
+                            unit:unit
+                          limit:limit
+                     completion:completion];
+}
+
+- (void)vitals_getAnchoredBodyTemperatureQuery:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+    
+    HKSampleType *tempType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature];
+    HKQueryAnchor *anchor = [RCTAppleHealthKit hkAnchorFromOptions:input];
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[HKUnit degreeCelsiusUnit]];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    
+    NSPredicate *predicate = [RCTAppleHealthKit predicateForAnchoredQueries:anchor startDate:startDate endDate:endDate];
+
+    void (^completion)(NSDictionary *results, NSError *error);
+
+    completion = ^(NSDictionary *results, NSError *error) {
+        if (results){
+            callback(@[[NSNull null], results]);
+
+            return;
+        } else {
+            NSLog(@"error getting samples: %@", error);
+            callback(@[RCTMakeError(@"error getting samples", error, nil)]);
+
+            return;
+        }
+    };
+
+    [self fetchAnchoredQuantity:tempType
+                      predicate:predicate
+                         anchor:anchor
+                            unit:unit
+                          limit:limit
+                     completion:completion];
+}
+
+- (void)vitals_getAnchoredBloodPressureQuery:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+    HKSampleType *bloodPressureCorrelationType = [HKCorrelationType correlationTypeForIdentifier:HKCorrelationTypeIdentifierBloodPressure];
+    HKUnit *unit = [RCTAppleHealthKit hkUnitFromOptions:input key:@"unit" withDefault:[HKUnit millimeterOfMercuryUnit]];
+    HKQueryAnchor *anchor = [RCTAppleHealthKit hkAnchorFromOptions:input];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    
+    NSPredicate *predicate = [RCTAppleHealthKit predicateForAnchoredQueries:anchor startDate:startDate endDate:endDate];
+
+    void (^completion)(NSDictionary *results, NSError *error);
+
+    completion = ^(NSDictionary *results, NSError *error) {
+        if (results){
+            callback(@[[NSNull null], results]);
+
+            return;
+        } else {
+            NSLog(@"error getting samples: %@", error);
+            callback(@[RCTMakeError(@"error getting samples", error, nil)]);
+
+            return;
+        }
+    };
+
+    [self fetchAnchoredBloodPressure:bloodPressureCorrelationType
+                           predicate:predicate
+                              anchor:anchor
+                                unit:unit
+                               limit:limit
+                          completion:completion];
+}
+
 @end

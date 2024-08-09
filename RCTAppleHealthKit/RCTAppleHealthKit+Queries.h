@@ -64,11 +64,25 @@
                         limit:(NSUInteger)lim
                    completion:(void (^)(NSDictionary *, NSError *))completion;
 
-- (void)fetchAnchoredStepCount:(HKSampleType *)type
+- (void)fetchAnchoredQuantity:(HKSampleType *)type
                     predicate:(NSPredicate *)predicate
                        anchor:(HKQueryAnchor *)anchor
+                         unit:(HKUnit *)unit
                         limit:(NSUInteger)lim
                    completion:(void (^)(NSDictionary *, NSError *))completion;
+
+- (void)fetchAnchoredBloodPressure:(HKSampleType *)type
+                    predicate:(NSPredicate *)predicate
+                       anchor:(HKQueryAnchor *)anchor
+                         unit:(HKUnit *)unit
+                        limit:(NSUInteger)lim
+                   completion:(void (^)(NSDictionary *, NSError *))completion;
+
+- (void)fetchAnchoredSleep:(HKSampleType *)type
+                 predicate:(NSPredicate *)predicate
+                    anchor:(HKQueryAnchor *)anchor
+                     limit:(NSUInteger)lim
+                completion:(void (^)(NSDictionary *, NSError *))completion;
 
 - (void)fetchQuantitySamplesOfType:(HKQuantityType *)quantityType
                               unit:(HKUnit *)unit

@@ -22,5 +22,10 @@
 - (void)vitals_getVo2MaxSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)vitals_getOxygenSaturationSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)vitals_getElectrocardiogramSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)vitals_getAnchoredHeartRateQuery: (NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)vitals_getAnchoredRestingHeartRateQuery: (NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)vitals_getAnchoredHeartRateVariabilityQuery: (NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)vitals_getAnchoredBodyTemperatureQuery: (NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)vitals_getAnchoredBloodPressureQuery: (NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
 @end
