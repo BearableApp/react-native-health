@@ -479,7 +479,7 @@ declare module 'react-native-health' {
     dateKey: string
     entry: {
       type: string
-      value: number
+      value: string
       family: string
     }
   }

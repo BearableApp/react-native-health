@@ -9,8 +9,7 @@
 import Foundation
 import HealthKit
 
-
-@available(iOS 14.0, *)
+@available(iOS 11.0, *)
 func dateFromOptions(options: NSDictionary, key: String) -> Date? {
     if let dateString = options[key] as? String {
         let isoFormatter = ISO8601DateFormatter()
@@ -52,12 +51,14 @@ func formatDateKey(date: Date) -> String {
 
 func formatRecord(date: Date, type: String, value: Double) -> NSDictionary {
     let dateKey = formatDateKey(date: date)
+    // make value a string with two decimal places
+    let stringValue = String(format: "%.2f", value)
 
     return [
         "dateKey": dateKey,
         "entry": [
             "type": type,
-            "value": Int(value),
+            "value": stringValue,
             "family": RECORDS_FAMILY,
         ]
     ]

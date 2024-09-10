@@ -10,14 +10,14 @@ import Foundation
 import HealthKit
 import CoreLocation
 
-@available(iOS 14.0, *)
 @objc extension RCTAppleHealthKit {
-  @objc(readBucketedSteps:resolve:reject:)
-  func readBucketedSteps(
+    @available(iOS 11.0, *)
+    @objc(readBucketedSteps:resolve:reject:)
+    func readBucketedSteps(
     options: NSDictionary,
     resolve: @escaping RCTPromiseResolveBlock,
     reject: @escaping RCTPromiseRejectBlock
-  ) {
+    ) {
     guard let healthStore = healthStore else {
         reject(INIT_ERROR, INIT_ERROR_MESSAGE, nil)
         return
@@ -36,7 +36,7 @@ import CoreLocation
     let interval = intervalFromOptions(options: options, key: "bucketPeriod")
       
     let predicate = createPredicate(from: start, to: end)
-  
+
     let query = HKStatisticsCollectionQuery(quantityType: quantityType,
                                  quantitySamplePredicate: predicate,
                                                  options: .cumulativeSum,
@@ -74,7 +74,7 @@ import CoreLocation
                 let date = statistics.startDate
                 let value = quantity.doubleValue(for: .count())
 
-                let record = formatRecord(date: date, type: STEPS_RECORD_TYPE, value: value)                
+                let record = formatRecord(date: date, type: STEPS_RECORD_TYPE, value: value)
                 records.add(record)
             }
         }
@@ -85,5 +85,5 @@ import CoreLocation
     }
       
     healthStore.execute(query)
-  }
+    }
 }
