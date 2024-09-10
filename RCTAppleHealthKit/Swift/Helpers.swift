@@ -49,10 +49,17 @@ func formatDateKey(date: Date) -> String {
     return dateFormatter.string(from: date)
 }
 
+func formatDoubleAsString(value: Double) -> String {
+    let formatter = NumberFormatter()
+    formatter.minimumFractionDigits = 0
+    formatter.maximumFractionDigits = 2
+
+    return formatter.string(from: NSNumber(value: value)) ?? "0"
+}
+
 func formatRecord(date: Date, type: String, value: Double) -> NSDictionary {
     let dateKey = formatDateKey(date: date)
-    // make value a string with two decimal places
-    let stringValue = String(format: "%.2f", value)
+    let stringValue = formatDoubleAsString(value: value)
 
     return [
         "dateKey": dateKey,
