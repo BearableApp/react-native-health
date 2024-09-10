@@ -250,6 +250,11 @@ declare module 'react-native-health' {
       callback: (err: string, results: Array<HealthValue>) => void,
     ): void
 
+    getAggregatedHeartRate(
+      options: HealthInputOptions,
+      callback: (err: string, results: Array<HealthValue>) => void,
+    ): void
+
     getRestingHeartRate(
       options: HealthInputOptions,
       callback: (err: string, results: HealthValue) => void,

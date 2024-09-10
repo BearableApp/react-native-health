@@ -29,6 +29,7 @@
 		64E0E73F1D37947B00EAB905 /* RCTAppleHealthKit+Methods_Results.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E73E1D37947B00EAB905 /* RCTAppleHealthKit+Methods_Results.m */; };
 		8C640F40269DF69C004CAFED /* RCTAppleHealthKit+Methods_Hearing.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C640F3F269DF69C004CAFED /* RCTAppleHealthKit+Methods_Hearing.m */; };
 		8C79D960268E081A00DBDC40 /* RCTAppleHealthKit+Methods_ClinicalRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79D95F268E081A00DBDC40 /* RCTAppleHealthKit+Methods_ClinicalRecords.m */; };
+		B78E46202C90735D009854F9 /* RCTAppleHealthKit+AggregatedHeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78E461F2C90735D009854F9 /* RCTAppleHealthKit+AggregatedHeartRate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -86,6 +87,7 @@
 		8C640F3F269DF69C004CAFED /* RCTAppleHealthKit+Methods_Hearing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Hearing.m"; sourceTree = "<group>"; };
 		8C79D95E268E07DB00DBDC40 /* RCTAppleHealthKit+Methods_ClinicalRecords.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_ClinicalRecords.h"; sourceTree = "<group>"; };
 		8C79D95F268E081A00DBDC40 /* RCTAppleHealthKit+Methods_ClinicalRecords.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_ClinicalRecords.m"; sourceTree = "<group>"; };
+		B78E461F2C90735D009854F9 /* RCTAppleHealthKit+AggregatedHeartRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RCTAppleHealthKit+AggregatedHeartRate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				54500EB12C89ECF300B03A3E /* RCTAppleHealthKit+Steps.swift */,
+				B78E461F2C90735D009854F9 /* RCTAppleHealthKit+AggregatedHeartRate.swift */,
 				54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+SwiftBridge.m */,
 				548E95682C8B3FB100464ABA /* Helpers.swift */,
 				54B12B7E2C8F562400AD2C4C /* Errors.swift */,
@@ -243,6 +246,7 @@
 				3774C8931D2092F20000B3F3 /* RCTAppleHealthKit.m in Sources */,
 				377D44F31D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m in Sources */,
 				4F8095C92523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.m in Sources */,
+				B78E46202C90735D009854F9 /* RCTAppleHealthKit+AggregatedHeartRate.swift in Sources */,
 				548E95692C8B3FB100464ABA /* Helpers.swift in Sources */,
 				3774C89E1D2095850000B3F3 /* RCTAppleHealthKit+TypesAndPermissions.m in Sources */,
 				54B12B7F2C8F562400AD2C4C /* Errors.swift in Sources */,

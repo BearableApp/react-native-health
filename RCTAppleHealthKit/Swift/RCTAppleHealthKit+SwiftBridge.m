@@ -13,4 +13,7 @@ RCT_EXTERN_METHOD(readBucketedSteps:(NSDictionary)options
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(getAggregatedHeartRate:(NSDictionary)options
+                  callback:(RCTResponseSenderBlock)callback)
+
 @end
