@@ -7,7 +7,6 @@
 
 import Foundation
 import HealthKit
-import CoreLocation
 
 @objc extension RCTAppleHealthKit {
     @available(iOS 11.0, *)
