@@ -46,8 +46,8 @@ func createPredicate(from: Date?, to: Date?) -> NSPredicate? {
 
 func formatDateKey(date: Date) -> String {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyyMMdd"  // Specify the desired format
-    return dateFormatter.string(from: date)  // Convert Date to formatted String
+    dateFormatter.dateFormat = "yyyyMMdd" 
+    return dateFormatter.string(from: date)
 }
 
 func formatRecord(date: Date, type: String, value: Double) -> NSDictionary {
