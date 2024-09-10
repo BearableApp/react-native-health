@@ -462,8 +462,26 @@ declare module 'react-native-health' {
       callback: (error: string, result: HealthValue) => void,
     ): void
 
+    // New Bearable Methods
+
+    readBucketedSteps(options: {
+      startTime: string
+      endTime: string
+      bucketPeriod: 'day' | 'month' | 'year'
+    }): Promise<BucketedRecord[]>
 
     Constants: Constants
+  }
+
+  /* Bearable Types */
+
+  export interface BucketedRecord {
+    dateKey: string
+    entry: {
+      type: string
+      value: string
+      family: string
+    }
   }
 
   /* Inputs and Payloads */
@@ -546,7 +564,7 @@ declare module 'react-native-health' {
     PausedOrResumeRequest = 'pause or resume request',
     Lap = 'lap',
     Segment = 'segment',
-    Marker = 'marker'
+    Marker = 'marker',
   }
 
   export type HKWorkoutEventType = {
