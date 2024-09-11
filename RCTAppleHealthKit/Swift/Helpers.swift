@@ -8,6 +8,16 @@
 import Foundation
 import HealthKit
 
+func createPredicate(from: Date?, to: Date?) -> NSPredicate? {
+    if from != nil || to != nil {
+        return HKQuery.predicateForSamples(withStart: from, end: to, options: [.strictEndDate, .strictStartDate])
+    } else {
+        return nil
+    }
+}
+
+// ----- Request Option Extraction Helpers ----- //
+
 @available(iOS 11.0, *)
 func dateFromOptions(options: NSDictionary, key: String) -> Date? {
     if let dateString = options[key] as? String {
@@ -34,13 +44,21 @@ func intervalFromOptions(options: NSDictionary, key: String) -> DateComponents {
     return DateComponents(day: 1)
 }
 
-func createPredicate(from: Date?, to: Date?) -> NSPredicate? {
-    if from != nil || to != nil {
-        return HKQuery.predicateForSamples(withStart: from, end: to, options: [.strictEndDate, .strictStartDate])
-    } else {
+func queryTypeFromRecordType(recordType: String) -> BucketedQueryType? {
+    guard let recordTypeEnum = RecordType(rawValue: recordType.uppercased()) else {
         return nil
     }
+
+    // switch string to DateComponents
+    switch recordTypeEnum {
+    case RecordType.steps:
+        return BucketedSteps()
+    case RecordType.heart:
+        return BucketedHeartRate()
+    }
 }
+
+// ----- Format Helpers ----- //
 
 func formatDateKey(date: Date) -> String {
     let dateFormatter = DateFormatter()
@@ -56,15 +74,13 @@ func formatDoubleAsString(value: Double) -> String {
     return formatter.string(from: NSNumber(value: value)) ?? "0"
 }
 
-func formatRecord(date: Date, type: String, value: Double) -> NSDictionary {
+func formatRecord(date: Date, type: RecordType, value: String) -> NSDictionary {
     let dateKey = formatDateKey(date: date)
-    let stringValue = formatDoubleAsString(value: value)
-
     return [
         "dateKey": dateKey,
         "entry": [
-            "type": type,
-            "value": stringValue,
+            "type": type.rawValue,
+            "value": value,
             "family": RECORDS_FAMILY,
         ]
     ]
