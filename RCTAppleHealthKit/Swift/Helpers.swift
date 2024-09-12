@@ -49,7 +49,6 @@ func queryTypeFromRecordType(recordType: String) -> BucketedQueryType? {
         return nil
     }
 
-    // switch string to DateComponents
     switch recordTypeEnum {
     case RecordType.steps:
         return BucketedSteps()
