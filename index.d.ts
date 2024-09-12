@@ -464,16 +464,20 @@ declare module 'react-native-health' {
 
     // New Bearable Methods
 
-    readBucketedSteps(options: {
-      startTime: string
-      endTime: string
-      bucketPeriod: 'day' | 'month' | 'year'
-    }): Promise<BucketedRecord[]>
+    readBucketedQuantity(
+      recordType: RecordType,
+      options: {
+        startTime: string
+        endTime: string
+        bucketPeriod: 'day' | 'month' | 'year'
+      },
+    ): Promise<BucketedRecord[]>
 
     Constants: Constants
   }
 
   /* Bearable Types */
+  export type RecordType = 'STEPS' | 'HEART'
 
   export interface BucketedRecord {
     dateKey: string

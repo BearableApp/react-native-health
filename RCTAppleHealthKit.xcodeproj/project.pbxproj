@@ -18,9 +18,12 @@
 		377D44F31D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 377D44F21D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m */; };
 		37837E7D1DCFE270000201A0 /* RCTAppleHealthKit+Methods_Sleep.m in Sources */ = {isa = PBXBuildFile; fileRef = 37837E7C1DCFE270000201A0 /* RCTAppleHealthKit+Methods_Sleep.m */; };
 		4F8095C92523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8095C82523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.m */; };
-		54500EB22C89ECF300B03A3E /* RCTAppleHealthKit+Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54500EB12C89ECF300B03A3E /* RCTAppleHealthKit+Steps.swift */; };
-		54500EB52C8A0FB800B03A3E /* RCTAppleHealthKit+SwiftBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+SwiftBridge.m */; };
+		54500EB52C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = 54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m */; };
 		548E95692C8B3FB100464ABA /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548E95682C8B3FB100464ABA /* Helpers.swift */; };
+		549AC6452C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AC6442C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift */; };
+		549AC6472C91B4B5005B8517 /* BucketedSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AC6462C91B4B5005B8517 /* BucketedSteps.swift */; };
+		549AC64A2C91B789005B8517 /* BucketedHeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AC6492C91B789005B8517 /* BucketedHeartRate.swift */; };
+		549AC64C2C91B8EA005B8517 /* BucketedQueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AC64B2C91B8EA005B8517 /* BucketedQueryType.swift */; };
 		54B12B7F2C8F562400AD2C4C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B12B7E2C8F562400AD2C4C /* Errors.swift */; };
 		54B12B812C8F56F400AD2C4C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B12B802C8F56F300AD2C4C /* Constants.swift */; };
 		58C81E6F1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C81E6D1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m */; };
@@ -69,9 +72,12 @@
 		4F8095C72523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_LabTests.h"; sourceTree = "<group>"; };
 		4F8095C82523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_LabTests.m"; sourceTree = "<group>"; };
 		54500EB02C89ECF200B03A3E /* RCTAppleHealthKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit-Bridging-Header.h"; sourceTree = "<group>"; };
-		54500EB12C89ECF300B03A3E /* RCTAppleHealthKit+Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RCTAppleHealthKit+Steps.swift"; sourceTree = "<group>"; };
-		54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+SwiftBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+SwiftBridge.m"; sourceTree = "<group>"; };
+		54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+BucketedQueries.m"; sourceTree = "<group>"; };
 		548E95682C8B3FB100464ABA /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		549AC6442C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RCTAppleHealthKit+BucketedQueries.swift"; sourceTree = "<group>"; };
+		549AC6462C91B4B5005B8517 /* BucketedSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedSteps.swift; sourceTree = "<group>"; };
+		549AC6492C91B789005B8517 /* BucketedHeartRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedHeartRate.swift; sourceTree = "<group>"; };
+		549AC64B2C91B8EA005B8517 /* BucketedQueryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedQueryType.swift; sourceTree = "<group>"; };
 		54B12B7E2C8F562400AD2C4C /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		54B12B802C8F56F300AD2C4C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		58C81E6D1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Activity.m"; sourceTree = "<group>"; };
@@ -161,13 +167,24 @@
 		54500EB32C8A0F3000B03A3E /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				54500EB12C89ECF300B03A3E /* RCTAppleHealthKit+Steps.swift */,
-				54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+SwiftBridge.m */,
+				549AC6482C91B70C005B8517 /* BucketedQueries */,
 				548E95682C8B3FB100464ABA /* Helpers.swift */,
 				54B12B7E2C8F562400AD2C4C /* Errors.swift */,
 				54B12B802C8F56F300AD2C4C /* Constants.swift */,
 			);
 			path = Swift;
+			sourceTree = "<group>";
+		};
+		549AC6482C91B70C005B8517 /* BucketedQueries */ = {
+			isa = PBXGroup;
+			children = (
+				54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m */,
+				549AC6442C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift */,
+				549AC6462C91B4B5005B8517 /* BucketedSteps.swift */,
+				549AC6492C91B789005B8517 /* BucketedHeartRate.swift */,
+				549AC64B2C91B8EA005B8517 /* BucketedQueryType.swift */,
+			);
+			path = BucketedQueries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,20 +251,23 @@
 				37837E7D1DCFE270000201A0 /* RCTAppleHealthKit+Methods_Sleep.m in Sources */,
 				3774C8D41D20C6390000B3F3 /* RCTAppleHealthKit+Methods_Body.m in Sources */,
 				61232F931E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.m in Sources */,
+				549AC6452C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift in Sources */,
 				64E0E73F1D37947B00EAB905 /* RCTAppleHealthKit+Methods_Results.m in Sources */,
 				358330DF20931B8A000F0B94 /* RCTAppleHealthKit+Methods_Workout.m in Sources */,
 				64C42D4A1D351A8800A0A8F7 /* RCTAppleHealthKit+Methods_Vitals.m in Sources */,
 				8C79D960268E081A00DBDC40 /* RCTAppleHealthKit+Methods_ClinicalRecords.m in Sources */,
-				54500EB22C89ECF300B03A3E /* RCTAppleHealthKit+Steps.swift in Sources */,
 				54B12B812C8F56F400AD2C4C /* Constants.swift in Sources */,
 				3774C8931D2092F20000B3F3 /* RCTAppleHealthKit.m in Sources */,
 				377D44F31D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m in Sources */,
 				4F8095C92523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.m in Sources */,
+				549AC64A2C91B789005B8517 /* BucketedHeartRate.swift in Sources */,
+				549AC64C2C91B8EA005B8517 /* BucketedQueryType.swift in Sources */,
 				548E95692C8B3FB100464ABA /* Helpers.swift in Sources */,
 				3774C89E1D2095850000B3F3 /* RCTAppleHealthKit+TypesAndPermissions.m in Sources */,
 				54B12B7F2C8F562400AD2C4C /* Errors.swift in Sources */,
 				3774C8D71D20C65F0000B3F3 /* RCTAppleHealthKit+Methods_Fitness.m in Sources */,
-				54500EB52C8A0FB800B03A3E /* RCTAppleHealthKit+SwiftBridge.m in Sources */,
+				549AC6472C91B4B5005B8517 /* BucketedSteps.swift in Sources */,
+				54500EB52C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m in Sources */,
 				58C81E6F1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

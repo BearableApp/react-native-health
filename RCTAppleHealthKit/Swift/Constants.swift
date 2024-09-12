@@ -8,4 +8,8 @@
 import Foundation
 
 let RECORDS_FAMILY = "health"
-let STEPS_RECORD_TYPE = "STEPS"
+
+enum RecordType: String {
+    case steps = "STEPS"
+    case heart = "HEART"
+}
