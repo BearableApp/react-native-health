@@ -478,7 +478,13 @@ declare module 'react-native-health' {
   }
 
   /* Bearable Types */
-  export type RecordType = 'STEPS' | 'HEART' | 'WEIGHT'
+  export type RecordType =
+    | 'STEPS'
+    | 'HEART'
+    | 'WEIGHT'
+    | 'HEART_RATE_VARIABILITY'
+    | 'RESTING_HEART_RATE'
+    | 'BODY_TEMPERATURE'
 
   export interface BucketedRecord {
     dateKey: string

@@ -13,4 +13,7 @@ enum RecordType: String {
     case steps = "STEPS"
     case heart = "HEART"
     case weight = "WEIGHT"
+    case hrv = "HEART_RATE_VARIABILITY"
+    case bodyTemperature = "BODY_TEMPERATURE"
+    case restingHeart = "RESTING_HEART_RATE"
 }
