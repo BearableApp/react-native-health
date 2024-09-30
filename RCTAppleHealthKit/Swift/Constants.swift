@@ -12,4 +12,5 @@ let RECORDS_FAMILY = "health"
 enum RecordType: String {
     case steps = "STEPS"
     case heart = "HEART"
+    case weight = "WEIGHT"
 }

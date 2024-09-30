@@ -12,5 +12,6 @@ protocol BucketedQueryType {
 
     func quantityType() -> HKQuantityType?
     func queryOptions() -> HKStatisticsOptions
-    func statisticsValue(statistic: HKStatistics) -> String?
+    func statisticsUnit(unitString: String?) -> HKUnit
+    func statisticsValue(statistic: HKStatistics, unit: HKUnit) -> String?
 }
