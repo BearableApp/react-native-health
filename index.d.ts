@@ -470,6 +470,7 @@ declare module 'react-native-health' {
         startTime: string
         endTime: string
         bucketPeriod: 'day' | 'month' | 'year'
+        unit?: HealthUnit
       },
     ): Promise<BucketedRecord[]>
 
@@ -477,7 +478,7 @@ declare module 'react-native-health' {
   }
 
   /* Bearable Types */
-  export type RecordType = 'STEPS' | 'HEART'
+  export type RecordType = 'STEPS' | 'HEART' | 'WEIGHT'
 
   export interface BucketedRecord {
     dateKey: string
@@ -849,6 +850,7 @@ declare module 'react-native-health' {
     inch = 'inch',
     joule = 'joule',
     kilocalorie = 'kilocalorie',
+    kg = 'kg',
     meter = 'meter',
     mgPerdL = 'mgPerdL',
     mile = 'mile',

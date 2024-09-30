@@ -29,6 +29,13 @@ func dateFromOptions(options: NSDictionary, key: String) -> Date? {
     return nil
 }
 
+func unitFromOptions(options: NSDictionary, key: String) -> String? {
+    if let unitString = options[key] as? String {
+        return unitString
+    }
+    return nil
+}
+
 func intervalFromOptions(options: NSDictionary, key: String) -> DateComponents {
     if let intervalString = options[key] as? String {
         // switch string to DateComponents
@@ -54,6 +61,8 @@ func queryTypeFromRecordType(recordType: String) -> BucketedQueryType? {
         return BucketedSteps()
     case RecordType.heart:
         return BucketedHeartRate()
+    case RecordType.weight:
+        return BucketedWeight()
     }
 }
 

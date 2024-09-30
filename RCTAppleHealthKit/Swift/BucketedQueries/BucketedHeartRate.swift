@@ -18,7 +18,12 @@ class BucketedHeartRate: BucketedQueryType {
         return [.discreteAverage, .discreteMax, .discreteMin]
     }
     
-    func statisticsValue(statistic: HKStatistics) -> String? {
+    func statisticsUnit(unitString: String?) -> HKUnit {
+        // Beats per minute
+        return .count().unitDivided(by: HKUnit.minute())
+    }
+    
+    func statisticsValue(statistic: HKStatistics, unit: HKUnit) -> String? {
         guard let average = statistic.averageQuantity() else {
             return nil
         }
@@ -29,10 +34,9 @@ class BucketedHeartRate: BucketedQueryType {
             return nil
         }
         
-        let beatsPerMinuteUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
-        let averageValue = average.doubleValue(for: beatsPerMinuteUnit)
-        let maximumValue = maximum.doubleValue(for: beatsPerMinuteUnit)
-        let minimumValue = minimum.doubleValue(for: beatsPerMinuteUnit)
+        let averageValue = average.doubleValue(for: unit)
+        let maximumValue = maximum.doubleValue(for: unit)
+        let minimumValue = minimum.doubleValue(for: unit)
         
         let averageString = formatDoubleAsString(value: averageValue)
         let maximumString = formatDoubleAsString(value: maximumValue)

@@ -37,6 +37,7 @@ import HealthKit
         }
 
         let queryOptions = queryType.queryOptions()
+        let unit = queryType.statisticsUnit(unitString: unitFromOptions(options: options, key: "unit"))
         let interval = intervalFromOptions(options: options, key: "bucketPeriod")
         let end = dateFromOptions(options: options, key: "endTime")
         let predicate = createPredicate(from: start, to: end)
@@ -72,7 +73,7 @@ import HealthKit
             let records: NSMutableArray = []
             // Loop over all the statistics objects
             for statistics in statsCollection.statistics() {
-                guard let value = queryType.statisticsValue(statistic: statistics) else {
+                guard let value = queryType.statisticsValue(statistic: statistics, unit: unit) else {
                     continue
                 }
 
