@@ -51,6 +51,7 @@ func intervalFromOptions(options: NSDictionary, key: String) -> DateComponents {
     return DateComponents(day: 1)
 }
 
+@available(iOS 11.0, *)
 func queryTypeFromRecordType(recordType: String) -> BucketedQueryType? {
     guard let recordTypeEnum = RecordType(rawValue: recordType.uppercased()) else {
         return nil
@@ -63,6 +64,12 @@ func queryTypeFromRecordType(recordType: String) -> BucketedQueryType? {
         return BucketedHeartRate()
     case RecordType.weight:
         return BucketedWeight()
+    case RecordType.hrv:
+        return BucketedHeartRateVariability()
+    case RecordType.bodyTemperature:
+        return BucketedBodyTemperature()
+    case RecordType.restingHeart:
+        return BucketedRestingHeartRate()
     }
 }
 
