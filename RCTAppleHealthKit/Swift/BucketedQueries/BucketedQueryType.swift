@@ -8,8 +8,6 @@
 import Foundation
 
 protocol BucketedQueryType {
-    var recordType: RecordType { get }
-
     func quantityType() -> HKQuantityType?
     func queryOptions() -> HKStatisticsOptions
     func statisticsUnit(unitString: String?) -> HKUnit

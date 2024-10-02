@@ -8,8 +8,6 @@
 import Foundation
 
 class BucketedBodyTemperature: BucketedQueryType {
-    var recordType: RecordType = .bodyTemperature
-    
     func quantityType() -> HKQuantityType? {
         return HKObjectType.quantityType(forIdentifier: .bodyTemperature)
     }

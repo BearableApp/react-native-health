@@ -52,24 +52,26 @@ func intervalFromOptions(options: NSDictionary, key: String) -> DateComponents {
 }
 
 @available(iOS 11.0, *)
-func queryTypeFromRecordType(recordType: String) -> BucketedQueryType? {
+func queryTypeFromRecordType(recordType: String) -> [BucketedQueryType]? {
     guard let recordTypeEnum = RecordType(rawValue: recordType.uppercased()) else {
         return nil
     }
 
     switch recordTypeEnum {
     case RecordType.steps:
-        return BucketedSteps()
+        return [BucketedSteps()]
     case RecordType.heart:
-        return BucketedHeartRate()
+        return [BucketedHeartRate()]
     case RecordType.weight:
-        return BucketedWeight()
+        return [BucketedWeight()]
     case RecordType.hrv:
-        return BucketedHeartRateVariability()
+        return [BucketedHeartRateVariability()]
     case RecordType.bodyTemperature:
-        return BucketedBodyTemperature()
+        return [BucketedBodyTemperature()]
     case RecordType.restingHeart:
-        return BucketedRestingHeartRate()
+        return [BucketedRestingHeartRate()]
+    case RecordType.bloodPressure:
+        return [BucketedSystolicBloodPressure(), BucketedDiastolicBloodPressure()]
     }
 }
 
@@ -89,12 +91,11 @@ func formatDoubleAsString(value: Double) -> String {
     return formatter.string(from: NSNumber(value: value)) ?? "0"
 }
 
-func formatRecord(date: Date, type: RecordType, value: String) -> NSDictionary {
-    let dateKey = formatDateKey(date: date)
+func formatRecord(date: String, type: String, value: String) -> NSDictionary {
     return [
-        "dateKey": dateKey,
+        "dateKey": date,
         "entry": [
-            "type": type.rawValue,
+            "type": type,
             "value": value,
             "family": RECORDS_FAMILY,
         ]

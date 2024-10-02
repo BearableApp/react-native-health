@@ -16,4 +16,5 @@ enum RecordType: String {
     case hrv = "HEART_RATE_VARIABILITY"
     case bodyTemperature = "BODY_TEMPERATURE"
     case restingHeart = "RESTING_HEART_RATE"
+    case bloodPressure = "PRESSURE"
 }

@@ -8,14 +8,12 @@
 import Foundation
 
 class BucketedWeight: BucketedQueryType {
-    var recordType: RecordType = .weight
-    
     func quantityType() -> HKQuantityType? {
         return HKObjectType.quantityType(forIdentifier: .bodyMass)
     }
     
     func queryOptions() -> HKStatisticsOptions {
-        return .discreteAverage
+        return .mostRecent
     }
     
     func statisticsUnit(unitString: String?) -> HKUnit {
@@ -30,7 +28,7 @@ class BucketedWeight: BucketedQueryType {
     }
     
     func statisticsValue(statistic: HKStatistics, unit: HKUnit) -> String? {
-        if let quantity = statistic.averageQuantity() {
+        if let quantity = statistic.mostRecentQuantity() {
             let value = quantity.doubleValue(for: unit)
             return formatDoubleAsString(value: value)
         }

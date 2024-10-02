@@ -8,8 +8,6 @@
 import Foundation
 
 class BucketedSteps: BucketedQueryType {
-    var recordType: RecordType = .steps
-    
     func quantityType() -> HKQuantityType? {
         return HKObjectType.quantityType(forIdentifier: .stepCount)
     }

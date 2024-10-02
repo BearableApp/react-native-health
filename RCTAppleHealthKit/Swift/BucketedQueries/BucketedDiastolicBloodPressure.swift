@@ -1,5 +1,5 @@
 //
-//  BucketedRestingHeartRate.swift
+//  BucketedDiastolicBloodPressure.swift
 //  RCTAppleHealthKit
 //
 //  Copyright © 2024 Bearable. All rights reserved.
@@ -7,10 +7,9 @@
 
 import Foundation
 
-@available(iOS 11.0, *)
-class BucketedRestingHeartRate: BucketedQueryType {
+class BucketedDiastolicBloodPressure: BucketedQueryType {
     func quantityType() -> HKQuantityType? {
-        return HKObjectType.quantityType(forIdentifier: .restingHeartRate)
+        return HKObjectType.quantityType(forIdentifier: .bloodPressureDiastolic)
     }
     
     func queryOptions() -> HKStatisticsOptions {
@@ -18,8 +17,7 @@ class BucketedRestingHeartRate: BucketedQueryType {
     }
     
     func statisticsUnit(unitString: String?) -> HKUnit {
-        // Beats per minute
-        return .count().unitDivided(by: HKUnit.minute())
+        return HKUnit(from: "mmHg")
     }
     
     func statisticsValue(statistic: HKStatistics, unit: HKUnit) -> String? {

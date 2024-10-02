@@ -8,8 +8,6 @@
 import Foundation
 
 class BucketedHeartRate: BucketedQueryType {
-    var recordType: RecordType = .heart
-    
     func quantityType() -> HKQuantityType? {
         return HKObjectType.quantityType(forIdentifier: .heartRate)
     }
