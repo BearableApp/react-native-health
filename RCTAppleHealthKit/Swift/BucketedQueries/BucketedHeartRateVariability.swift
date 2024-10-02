@@ -9,8 +9,6 @@ import Foundation
 
 @available(iOS 11.0, *)
 class BucketedHeartRateVariability: BucketedQueryType {
-    var recordType: RecordType = .hrv
-    
     func quantityType() -> HKQuantityType? {
         return HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN)
     }

@@ -22,6 +22,8 @@
 		54325B112CAAF64700346FB7 /* BucketedHeartRateVariability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B102CAAF64700346FB7 /* BucketedHeartRateVariability.swift */; };
 		54325B132CAAF79300346FB7 /* BucketedBodyTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B122CAAF79200346FB7 /* BucketedBodyTemperature.swift */; };
 		54325B152CAAFA1300346FB7 /* BucketedRestingHeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B142CAAFA1300346FB7 /* BucketedRestingHeartRate.swift */; };
+		54325B192CAC4D6700346FB7 /* BucketedSystolicBloodPressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B182CAC4D6700346FB7 /* BucketedSystolicBloodPressure.swift */; };
+		54325B1B2CAC4DEC00346FB7 /* BucketedDiastolicBloodPressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B1A2CAC4DEC00346FB7 /* BucketedDiastolicBloodPressure.swift */; };
 		54500EB52C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = 54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m */; };
 		548E95692C8B3FB100464ABA /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548E95682C8B3FB100464ABA /* Helpers.swift */; };
 		549AC6452C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AC6442C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift */; };
@@ -79,6 +81,8 @@
 		54325B102CAAF64700346FB7 /* BucketedHeartRateVariability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedHeartRateVariability.swift; sourceTree = "<group>"; };
 		54325B122CAAF79200346FB7 /* BucketedBodyTemperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedBodyTemperature.swift; sourceTree = "<group>"; };
 		54325B142CAAFA1300346FB7 /* BucketedRestingHeartRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedRestingHeartRate.swift; sourceTree = "<group>"; };
+		54325B182CAC4D6700346FB7 /* BucketedSystolicBloodPressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedSystolicBloodPressure.swift; sourceTree = "<group>"; };
+		54325B1A2CAC4DEC00346FB7 /* BucketedDiastolicBloodPressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedDiastolicBloodPressure.swift; sourceTree = "<group>"; };
 		54500EB02C89ECF200B03A3E /* RCTAppleHealthKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit-Bridging-Header.h"; sourceTree = "<group>"; };
 		54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+BucketedQueries.m"; sourceTree = "<group>"; };
 		548E95682C8B3FB100464ABA /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 				54325B102CAAF64700346FB7 /* BucketedHeartRateVariability.swift */,
 				54325B122CAAF79200346FB7 /* BucketedBodyTemperature.swift */,
 				54325B142CAAFA1300346FB7 /* BucketedRestingHeartRate.swift */,
+				54325B182CAC4D6700346FB7 /* BucketedSystolicBloodPressure.swift */,
+				54325B1A2CAC4DEC00346FB7 /* BucketedDiastolicBloodPressure.swift */,
 			);
 			path = BucketedQueries;
 			sourceTree = "<group>";
@@ -259,6 +265,7 @@
 			files = (
 				54325B152CAAFA1300346FB7 /* BucketedRestingHeartRate.swift in Sources */,
 				3774C89B1D2095450000B3F3 /* RCTAppleHealthKit+Queries.m in Sources */,
+				54325B192CAC4D6700346FB7 /* BucketedSystolicBloodPressure.swift in Sources */,
 				3774C8A11D20A6B90000B3F3 /* RCTAppleHealthKit+Utils.m in Sources */,
 				54325B0F2CAADA9700346FB7 /* BucketedWeight.swift in Sources */,
 				8C640F40269DF69C004CAFED /* RCTAppleHealthKit+Methods_Hearing.m in Sources */,
@@ -281,6 +288,7 @@
 				548E95692C8B3FB100464ABA /* Helpers.swift in Sources */,
 				3774C89E1D2095850000B3F3 /* RCTAppleHealthKit+TypesAndPermissions.m in Sources */,
 				54B12B7F2C8F562400AD2C4C /* Errors.swift in Sources */,
+				54325B1B2CAC4DEC00346FB7 /* BucketedDiastolicBloodPressure.swift in Sources */,
 				3774C8D71D20C65F0000B3F3 /* RCTAppleHealthKit+Methods_Fitness.m in Sources */,
 				549AC6472C91B4B5005B8517 /* BucketedSteps.swift in Sources */,
 				54500EB52C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m in Sources */,
