@@ -14,4 +14,8 @@ RCT_EXTERN_METHOD(readBucketedQuantity:recordType
                                resolve:(RCTPromiseResolveBlock)resolve
                                 reject:(RCTPromiseRejectBlock)reject)
 
+RCT_EXTERN_METHOD(readBucketedSleep:options
+                               resolve:(RCTPromiseResolveBlock)resolve
+                                reject:(RCTPromiseRejectBlock)reject)
+
 @end

@@ -16,6 +16,19 @@ func createPredicate(from: Date?, to: Date?) -> NSPredicate? {
     }
 }
 
+@available(iOS 10.0, *)
+func findSleepType(value: HKCategoryValueSleepAnalysis.RawValue) -> SleepType {
+    switch value {
+    case HKCategoryValueSleepAnalysis.inBed.rawValue:
+        return .inBed
+    case HKCategoryValueSleepAnalysis.awake.rawValue:
+        return .awake
+    // Default values: .asleepCore, .asleepREM, .asleepDeep, .asleepUnspecified
+    default:
+        return .asleep
+    }
+}
+
 // ----- Request Option Extraction Helpers ----- //
 
 @available(iOS 11.0, *)
@@ -83,12 +96,41 @@ func formatDateKey(date: Date) -> String {
     return dateFormatter.string(from: date)
 }
 
+func formatSleepDateKey(date: Date, cutoff: Int) -> String {
+    var finalDate = date
+
+    let sampleHour = Calendar.current.component(.hour, from: date)
+    if sampleHour > cutoff {
+        // If past the cutoff then we want to get the date key for the next day
+        finalDate = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+    }
+    
+    return formatDateKey(date: finalDate)
+}
+
+// Format to YYYY-MM-DD HH:mm:ss.SSS as local time
+func formatLocalString(date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+    formatter.timeZone = .current
+    formatter.locale = Locale(identifier: "en_US_POSIX")
+    return formatter.string(from: date)
+}
+
 func formatDoubleAsString(value: Double) -> String {
     let formatter = NumberFormatter()
     formatter.minimumFractionDigits = 0
     formatter.maximumFractionDigits = 2
 
     return formatter.string(from: NSNumber(value: value)) ?? "0"
+}
+
+func formatDuration(seconds: Double) -> String {
+    let hours = Int(seconds) / 3600
+    let secondsAfterHours = Int(seconds) % 3600
+    let minutes = secondsAfterHours / 60
+
+   return String(format: "%02d:%02d", hours, minutes)
 }
 
 func formatRecord(date: String, type: String, value: String) -> NSDictionary {
@@ -99,5 +141,43 @@ func formatRecord(date: String, type: String, value: String) -> NSDictionary {
             "value": value,
             "family": RECORDS_FAMILY,
         ]
+    ]
+}
+
+func formatSleepRecord(date: String, type: String, sleepValue: SleepValue) -> NSDictionary {
+    
+    let value = formatDuration(seconds: sleepValue.duration)
+
+    var entry: [String: Any] = [
+        "type": type,
+        "value": value,
+        "family": RECORDS_FAMILY,
+    ]
+    var timesInBed: [String: String] = [:]
+    var sleepTimes: [String: String] = [:]
+    
+    if let inBedAt = sleepValue.inBed {
+        timesInBed["inBedAt"] = formatLocalString(date: inBedAt)
+    }
+    if let outOfBedAt = sleepValue.outOfBed {
+        timesInBed["outOfBedAt"] = formatLocalString(date: outOfBedAt)
+    }
+    if let fellAsleepAt = sleepValue.fellAsleep {
+        sleepTimes["fellAsleepAt"] = formatLocalString(date: fellAsleepAt)
+    }
+    if let wokeUpAt = sleepValue.wokeUp {
+        sleepTimes["wokeUpAt"] = formatLocalString(date: wokeUpAt)
+    }
+    
+    if !timesInBed.isEmpty {
+        entry["timesInBed"] = timesInBed
+    }
+    if !sleepTimes.isEmpty {
+        entry["sleepTimes"] = sleepTimes
+    }
+    
+    return [
+        "dateKey": date,
+        "entry": entry
     ]
 }

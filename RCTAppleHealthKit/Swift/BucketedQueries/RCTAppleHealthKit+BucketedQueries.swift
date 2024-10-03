@@ -142,4 +142,73 @@ import HealthKit
             resolve(records)
         }
     }
+
+    @available(iOS 11.0, *)
+    @objc(readBucketedSleep:resolve:reject:)
+    func readBucketedSleep(
+        options: NSDictionary,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        guard let healthStore = healthStore else {
+            reject(INIT_ERROR, INIT_ERROR_MESSAGE, nil)
+            return
+        }
+        
+        guard let start = dateFromOptions(options: options, key: "startTime") else {
+            reject(INVALID_OPTIONS_ERROR, "Start date must be provided", nil)
+            return
+        }
+
+        if intervalFromOptions(options: options, key: "bucketPeriod") != DateComponents(day: 1) {
+            reject(INVALID_OPTIONS_ERROR, "Bucket period is not supported - please use 'day'", nil)
+            return
+        }
+        
+        let end = dateFromOptions(options: options, key: "endTime")
+        let predicate = createPredicate(from: start, to: end)
+        
+        let bucketedSleep = BucketedSleep()
+        guard let categoryType = bucketedSleep.categoryType() else {
+            reject(UNEXPECTED_ERROR, "No matching category type to \(bucketedSleep.recordType)", nil)
+            return
+        }
+        
+        let query = HKSampleQuery(sampleType: categoryType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
+            query, results, error in
+            
+            guard let sleepSamples = results as? [HKCategorySample] else {
+                // Handle any errors here.
+                return
+            }
+
+            var recordsDict: [String: SleepValue] = [:]
+            let cutoffHour = Calendar.current.component(.hour, from: start)
+            
+            for sleepSample in sleepSamples {
+                let dateKey = formatSleepDateKey(date: sleepSample.startDate, cutoff: cutoffHour)
+                let sleepValue = bucketedSleep.calculateSleepValue(sample: sleepSample, existingRecord: recordsDict[dateKey], cutoffHour: cutoffHour)
+                if sleepValue == nil {
+                    continue // Skip awake samples
+                }
+
+                recordsDict[dateKey] = sleepValue
+            }
+            
+            let records: NSMutableArray = []
+            for (dateKey, sleepRecord) in recordsDict {
+                if sleepRecord.duration.isZero {
+                    continue
+                }
+                
+                records.add(formatSleepRecord(date: dateKey, type: bucketedSleep.recordType, sleepValue: sleepRecord))
+            }
+
+            DispatchQueue.main.async {
+                resolve(records)
+            }
+        }
+        
+        healthStore.execute(query)
+    }
 }

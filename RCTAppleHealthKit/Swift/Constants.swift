@@ -7,7 +7,7 @@
 
 import Foundation
 
-let RECORDS_FAMILY = "health"
+let RECORDS_FAMILY = "HEALTH"
 
 enum RecordType: String {
     case steps = "STEPS"
@@ -17,4 +17,10 @@ enum RecordType: String {
     case bodyTemperature = "BODY_TEMPERATURE"
     case restingHeart = "RESTING_HEART_RATE"
     case bloodPressure = "PRESSURE"
+}
+
+enum SleepType {
+    case asleep
+    case inBed
+    case awake
 }
