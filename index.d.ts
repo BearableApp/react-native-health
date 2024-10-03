@@ -479,11 +479,12 @@ declare module 'react-native-health' {
   /* Bearable Types */
   export type RecordType =
     | 'STEPS'
-    | 'HEART'
     | 'WEIGHT'
-    | 'HEART_RATE_VARIABILITY'
+    | 'HEART'
+    | 'PRESSURE'
     | 'RESTING_HEART_RATE'
     | 'BODY_TEMPERATURE'
+    | 'HEART_RATE_VARIABILITY'
 
   export interface BucketedReadOptions {
     startTime: string
