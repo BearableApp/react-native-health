@@ -195,9 +195,6 @@ import HealthKit
                 recordsDict[dateKey] = sleepValue
             }
             
-            print("RECORDS DICT")
-            print(recordsDict)
-            
             let records: NSMutableArray = []
             for (dateKey, sleepRecord) in recordsDict {
                 if sleepRecord.duration.isZero {
@@ -206,9 +203,6 @@ import HealthKit
                 
                 records.add(formatSleepRecord(date: dateKey, type: bucketedSleep.recordType, sleepValue: sleepRecord))
             }
-            
-            print("RECORDS ARRAY")
-            print(records)
 
             DispatchQueue.main.async {
                 resolve(records)

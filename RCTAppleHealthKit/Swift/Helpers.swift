@@ -23,7 +23,7 @@ func findSleepType(value: HKCategoryValueSleepAnalysis.RawValue) -> SleepType {
         return .inBed
     case HKCategoryValueSleepAnalysis.awake.rawValue:
         return .awake
-    // .asleepCore, .asleepREM, .asleepDeep, .asleepUnspecified
+    // Default values: .asleepCore, .asleepREM, .asleepDeep, .asleepUnspecified
     default:
         return .asleep
     }
