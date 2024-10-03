@@ -466,13 +466,12 @@ declare module 'react-native-health' {
 
     readBucketedQuantity(
       recordType: RecordType,
-      options: {
-        startTime: string
-        endTime: string
-        bucketPeriod: 'day' | 'month' | 'year'
-        unit?: HealthUnit
-      },
+      options: BucketedReadOptions,
     ): Promise<BucketedRecord[]>
+
+    readBucketedSleep(
+      options: BucketedReadOptions,
+    ): Promise<BucketedSleepRecord[]>
 
     Constants: Constants
   }
@@ -486,12 +485,36 @@ declare module 'react-native-health' {
     | 'RESTING_HEART_RATE'
     | 'BODY_TEMPERATURE'
 
+  export interface BucketedReadOptions {
+    startTime: string
+    endTime: string
+    bucketPeriod: 'day' | 'month' | 'year'
+    unit?: HealthUnit
+  }
+
   export interface BucketedRecord {
     dateKey: string
     entry: {
       type: string
       value: string
       family: string
+    }
+  }
+
+  export interface BucketedSleepRecord {
+    dateKey: string
+    entry: {
+      type: string
+      value: string
+      family: string
+      timesInBed: {
+        inBedAt: string
+        outOfBedAt: string
+      }
+      sleepTimes: {
+        fellAsleepAt: string
+        wokeUpAt: string
+      }
     }
   }
 
