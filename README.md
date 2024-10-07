@@ -4,7 +4,7 @@
 
 A React Native package to interact with Apple HealthKit for iOS. Originally maintained with ❤️ by [AE Studio](https://ae.studio) but it has been heavily adapted for [Bearable](https://github.com/BearableApp/client-bearable).
 
-This package allows access to health & fitness data exposed by Apple Healthkit and returns data in the specific format to Bearable's need.
+This package allows access to health & fitness data exposed by Apple Healthkit and returns data in the specific format to Bearable's need. It still contains the original functions however this documentation explains the custom bearable functionality. You can explore the original docs [here](docs/original/README.md).
 
 ## Getting Started
 
