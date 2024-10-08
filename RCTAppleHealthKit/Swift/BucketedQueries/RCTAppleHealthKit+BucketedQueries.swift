@@ -167,41 +167,63 @@ import HealthKit
         
         let end = dateFromOptions(options: options, key: "endTime")
         let predicate = createPredicate(from: start, to: end)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
         
         let bucketedSleep = BucketedSleep()
         guard let categoryType = bucketedSleep.categoryType() else {
             reject(UNEXPECTED_ERROR, "No matching category type to \(bucketedSleep.recordType)", nil)
             return
         }
-        
-        let query = HKSampleQuery(sampleType: categoryType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) {
+
+        let query = HKSampleQuery(sampleType: categoryType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) {
             query, results, error in
             
             guard let sleepSamples = results as? [HKCategorySample] else {
-                // Handle any errors here.
+                reject(UNEXPECTED_ERROR, "An error occurred fetching records for sleep", nil)
                 return
             }
 
-            var recordsDict: [String: SleepValue] = [:]
-            let cutoffHour = Calendar.current.component(.hour, from: start)
+            var sampleDict: [String: [SleepType: [SimpleSleepSample]]] = [:]
+            let cutOffHour = Calendar.current.component(.hour, from: start)
             
             for sleepSample in sleepSamples {
-                let dateKey = formatSleepDateKey(date: sleepSample.startDate, cutoff: cutoffHour)
-                let sleepValue = bucketedSleep.calculateSleepValue(sample: sleepSample, existingRecord: recordsDict[dateKey], cutoffHour: cutoffHour)
-                if sleepValue == nil {
-                    continue // Skip awake samples
+                let dateKey = formatSleepDateKey(date: sleepSample.startDate, cutOff: cutOffHour)
+                
+                let sleepSampleType = findSleepType(value: sleepSample.value)
+                if sleepSampleType == .awake {
+                    continue
                 }
 
-                recordsDict[dateKey] = sleepValue
+                var sleepTypeDict = sampleDict[dateKey, default: [:]]
+                var samplesForType = sleepTypeDict[sleepSampleType, default: []]
+                var newSample = SimpleSleepSample(startDate: sleepSample.startDate, endDate: sleepSample.endDate, type: sleepSampleType)
+                
+                if let lastSample = samplesForType.last, lastSample.endDate > sleepSample.startDate {
+                    if lastSample.endDate >= sleepSample.endDate {
+                        // Full overlap - don't include sample
+                        continue
+                    }
+                    
+                    // Partial overlap - Remove the last sample and update the new samples start date to use the last samples start date
+                    newSample.startDate = lastSample.startDate
+                    samplesForType.removeLast()
+                }
+                
+                samplesForType.append(newSample)
+                sleepTypeDict[sleepSampleType] = samplesForType
+                sampleDict[dateKey] = sleepTypeDict
             }
             
-            let records: NSMutableArray = []
-            for (dateKey, sleepRecord) in recordsDict {
-                if sleepRecord.duration.isZero {
+            var records: [Any] = []
+            for (dateKey, sleepSamplesForDate) in sampleDict {
+                guard let sleepValue = bucketedSleep.calculateSleepValue(samplesForDate: sleepSamplesForDate) else {
+                    continue
+                }
+                if sleepValue.duration.isZero {
                     continue
                 }
                 
-                records.add(formatSleepRecord(date: dateKey, type: bucketedSleep.recordType, sleepValue: sleepRecord))
+                records.append(formatSleepRecord(date: dateKey, type: bucketedSleep.recordType, sleepValue: sleepValue))
             }
 
             DispatchQueue.main.async {

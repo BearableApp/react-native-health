@@ -96,12 +96,12 @@ func formatDateKey(date: Date) -> String {
     return dateFormatter.string(from: date)
 }
 
-func formatSleepDateKey(date: Date, cutoff: Int) -> String {
+func formatSleepDateKey(date: Date, cutOff: Int) -> String {
     var finalDate = date
 
     let sampleHour = Calendar.current.component(.hour, from: date)
-    if sampleHour > cutoff {
-        // If past the cutoff then we want to get the date key for the next day
+    if sampleHour > cutOff {
+        // If past the cut off then we want to get the date key for the next day
         finalDate = Calendar.current.date(byAdding: .day, value: 1, to: date)!
     }
     
