@@ -130,7 +130,7 @@ func formatDuration(seconds: Double) -> String {
     let secondsAfterHours = Int(seconds) % 3600
     let minutes = secondsAfterHours / 60
 
-   return String(format: "%02d:%02d", hours, minutes)
+   return String(format: "%d:%02d", hours, minutes)
 }
 
 func formatRecord(date: String, type: String, value: String) -> NSDictionary {
