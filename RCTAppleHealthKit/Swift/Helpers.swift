@@ -121,6 +121,7 @@ func formatDoubleAsString(value: Double) -> String {
     let formatter = NumberFormatter()
     formatter.minimumFractionDigits = 0
     formatter.maximumFractionDigits = 2
+    formatter.locale = Locale(identifier: "en_US_POSIX")
 
     return formatter.string(from: NSNumber(value: value)) ?? "0"
 }
