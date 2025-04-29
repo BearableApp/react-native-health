@@ -18,6 +18,21 @@
 		377D44F31D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 377D44F21D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m */; };
 		37837E7D1DCFE270000201A0 /* RCTAppleHealthKit+Methods_Sleep.m in Sources */ = {isa = PBXBuildFile; fileRef = 37837E7C1DCFE270000201A0 /* RCTAppleHealthKit+Methods_Sleep.m */; };
 		4F8095C92523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8095C82523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.m */; };
+		54325B0F2CAADA9700346FB7 /* BucketedWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B0E2CAADA9700346FB7 /* BucketedWeight.swift */; };
+		54325B112CAAF64700346FB7 /* BucketedHeartRateVariability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B102CAAF64700346FB7 /* BucketedHeartRateVariability.swift */; };
+		54325B132CAAF79300346FB7 /* BucketedBodyTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B122CAAF79200346FB7 /* BucketedBodyTemperature.swift */; };
+		54325B152CAAFA1300346FB7 /* BucketedRestingHeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B142CAAFA1300346FB7 /* BucketedRestingHeartRate.swift */; };
+		54325B192CAC4D6700346FB7 /* BucketedSystolicBloodPressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B182CAC4D6700346FB7 /* BucketedSystolicBloodPressure.swift */; };
+		54325B1B2CAC4DEC00346FB7 /* BucketedDiastolicBloodPressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B1A2CAC4DEC00346FB7 /* BucketedDiastolicBloodPressure.swift */; };
+		54325B1D2CADB4CA00346FB7 /* BucketedSleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54325B1C2CADB4CA00346FB7 /* BucketedSleep.swift */; };
+		54500EB52C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = 54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m */; };
+		548E95692C8B3FB100464ABA /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548E95682C8B3FB100464ABA /* Helpers.swift */; };
+		549AC6452C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AC6442C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift */; };
+		549AC6472C91B4B5005B8517 /* BucketedSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AC6462C91B4B5005B8517 /* BucketedSteps.swift */; };
+		549AC64A2C91B789005B8517 /* BucketedHeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AC6492C91B789005B8517 /* BucketedHeartRate.swift */; };
+		549AC64C2C91B8EA005B8517 /* BucketedQueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549AC64B2C91B8EA005B8517 /* BucketedQueryType.swift */; };
+		54B12B7F2C8F562400AD2C4C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B12B7E2C8F562400AD2C4C /* Errors.swift */; };
+		54B12B812C8F56F400AD2C4C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B12B802C8F56F300AD2C4C /* Constants.swift */; };
 		58C81E6F1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C81E6D1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m */; };
 		61232F931E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.m in Sources */ = {isa = PBXBuildFile; fileRef = 61232F921E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.m */; };
 		64C42D4A1D351A8800A0A8F7 /* RCTAppleHealthKit+Methods_Vitals.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C42D491D351A8800A0A8F7 /* RCTAppleHealthKit+Methods_Vitals.m */; };
@@ -63,6 +78,22 @@
 		37837E7C1DCFE270000201A0 /* RCTAppleHealthKit+Methods_Sleep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Sleep.m"; sourceTree = "<group>"; };
 		4F8095C72523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_LabTests.h"; sourceTree = "<group>"; };
 		4F8095C82523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_LabTests.m"; sourceTree = "<group>"; };
+		54325B0E2CAADA9700346FB7 /* BucketedWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedWeight.swift; sourceTree = "<group>"; };
+		54325B102CAAF64700346FB7 /* BucketedHeartRateVariability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedHeartRateVariability.swift; sourceTree = "<group>"; };
+		54325B122CAAF79200346FB7 /* BucketedBodyTemperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedBodyTemperature.swift; sourceTree = "<group>"; };
+		54325B142CAAFA1300346FB7 /* BucketedRestingHeartRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedRestingHeartRate.swift; sourceTree = "<group>"; };
+		54325B182CAC4D6700346FB7 /* BucketedSystolicBloodPressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedSystolicBloodPressure.swift; sourceTree = "<group>"; };
+		54325B1A2CAC4DEC00346FB7 /* BucketedDiastolicBloodPressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedDiastolicBloodPressure.swift; sourceTree = "<group>"; };
+		54325B1C2CADB4CA00346FB7 /* BucketedSleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedSleep.swift; sourceTree = "<group>"; };
+		54500EB02C89ECF200B03A3E /* RCTAppleHealthKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit-Bridging-Header.h"; sourceTree = "<group>"; };
+		54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+BucketedQueries.m"; sourceTree = "<group>"; };
+		548E95682C8B3FB100464ABA /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		549AC6442C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RCTAppleHealthKit+BucketedQueries.swift"; sourceTree = "<group>"; };
+		549AC6462C91B4B5005B8517 /* BucketedSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedSteps.swift; sourceTree = "<group>"; };
+		549AC6492C91B789005B8517 /* BucketedHeartRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedHeartRate.swift; sourceTree = "<group>"; };
+		549AC64B2C91B8EA005B8517 /* BucketedQueryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketedQueryType.swift; sourceTree = "<group>"; };
+		54B12B7E2C8F562400AD2C4C /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		54B12B802C8F56F300AD2C4C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		58C81E6D1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RCTAppleHealthKit+Methods_Activity.m"; sourceTree = "<group>"; };
 		58C81E6E1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Activity.h"; sourceTree = "<group>"; };
 		61232F911E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTAppleHealthKit+Methods_Mindfulness.h"; sourceTree = "<group>"; };
@@ -107,6 +138,7 @@
 		3774C88F1D2092F20000B3F3 /* RCTAppleHealthKit */ = {
 			isa = PBXGroup;
 			children = (
+				54500EB32C8A0F3000B03A3E /* Swift */,
 				4F8095C72523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.h */,
 				4F8095C82523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.m */,
 				58C81E6E1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.h */,
@@ -119,6 +151,7 @@
 				64C42D491D351A8800A0A8F7 /* RCTAppleHealthKit+Methods_Vitals.m */,
 				3774C8901D2092F20000B3F3 /* RCTAppleHealthKit.h */,
 				3774C8921D2092F20000B3F3 /* RCTAppleHealthKit.m */,
+				54500EB02C89ECF200B03A3E /* RCTAppleHealthKit-Bridging-Header.h */,
 				3774C8991D2095450000B3F3 /* RCTAppleHealthKit+Queries.h */,
 				3774C89A1D2095450000B3F3 /* RCTAppleHealthKit+Queries.m */,
 				3774C89C1D2095850000B3F3 /* RCTAppleHealthKit+TypesAndPermissions.h */,
@@ -143,6 +176,36 @@
 				8C79D95F268E081A00DBDC40 /* RCTAppleHealthKit+Methods_ClinicalRecords.m */,
 			);
 			path = RCTAppleHealthKit;
+			sourceTree = "<group>";
+		};
+		54500EB32C8A0F3000B03A3E /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				549AC6482C91B70C005B8517 /* BucketedQueries */,
+				548E95682C8B3FB100464ABA /* Helpers.swift */,
+				54B12B7E2C8F562400AD2C4C /* Errors.swift */,
+				54B12B802C8F56F300AD2C4C /* Constants.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		549AC6482C91B70C005B8517 /* BucketedQueries */ = {
+			isa = PBXGroup;
+			children = (
+				54500EB42C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m */,
+				549AC6442C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift */,
+				549AC6462C91B4B5005B8517 /* BucketedSteps.swift */,
+				549AC6492C91B789005B8517 /* BucketedHeartRate.swift */,
+				549AC64B2C91B8EA005B8517 /* BucketedQueryType.swift */,
+				54325B0E2CAADA9700346FB7 /* BucketedWeight.swift */,
+				54325B102CAAF64700346FB7 /* BucketedHeartRateVariability.swift */,
+				54325B122CAAF79200346FB7 /* BucketedBodyTemperature.swift */,
+				54325B142CAAFA1300346FB7 /* BucketedRestingHeartRate.swift */,
+				54325B182CAC4D6700346FB7 /* BucketedSystolicBloodPressure.swift */,
+				54325B1A2CAC4DEC00346FB7 /* BucketedDiastolicBloodPressure.swift */,
+				54325B1C2CADB4CA00346FB7 /* BucketedSleep.swift */,
+			);
+			path = BucketedQueries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +239,7 @@
 				TargetAttributes = {
 					3774C88C1D2092F20000B3F3 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -202,21 +266,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54325B152CAAFA1300346FB7 /* BucketedRestingHeartRate.swift in Sources */,
 				3774C89B1D2095450000B3F3 /* RCTAppleHealthKit+Queries.m in Sources */,
+				54325B192CAC4D6700346FB7 /* BucketedSystolicBloodPressure.swift in Sources */,
 				3774C8A11D20A6B90000B3F3 /* RCTAppleHealthKit+Utils.m in Sources */,
+				54325B0F2CAADA9700346FB7 /* BucketedWeight.swift in Sources */,
 				8C640F40269DF69C004CAFED /* RCTAppleHealthKit+Methods_Hearing.m in Sources */,
 				37837E7D1DCFE270000201A0 /* RCTAppleHealthKit+Methods_Sleep.m in Sources */,
+				54325B132CAAF79300346FB7 /* BucketedBodyTemperature.swift in Sources */,
 				3774C8D41D20C6390000B3F3 /* RCTAppleHealthKit+Methods_Body.m in Sources */,
 				61232F931E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.m in Sources */,
+				549AC6452C91B09E005B8517 /* RCTAppleHealthKit+BucketedQueries.swift in Sources */,
+				54325B112CAAF64700346FB7 /* BucketedHeartRateVariability.swift in Sources */,
 				64E0E73F1D37947B00EAB905 /* RCTAppleHealthKit+Methods_Results.m in Sources */,
 				358330DF20931B8A000F0B94 /* RCTAppleHealthKit+Methods_Workout.m in Sources */,
 				64C42D4A1D351A8800A0A8F7 /* RCTAppleHealthKit+Methods_Vitals.m in Sources */,
 				8C79D960268E081A00DBDC40 /* RCTAppleHealthKit+Methods_ClinicalRecords.m in Sources */,
+				54B12B812C8F56F400AD2C4C /* Constants.swift in Sources */,
 				3774C8931D2092F20000B3F3 /* RCTAppleHealthKit.m in Sources */,
 				377D44F31D247D0A004E35CB /* RCTAppleHealthKit+Methods_Characteristic.m in Sources */,
 				4F8095C92523C39D00A84ADB /* RCTAppleHealthKit+Methods_LabTests.m in Sources */,
+				549AC64A2C91B789005B8517 /* BucketedHeartRate.swift in Sources */,
+				549AC64C2C91B8EA005B8517 /* BucketedQueryType.swift in Sources */,
+				548E95692C8B3FB100464ABA /* Helpers.swift in Sources */,
 				3774C89E1D2095850000B3F3 /* RCTAppleHealthKit+TypesAndPermissions.m in Sources */,
+				54B12B7F2C8F562400AD2C4C /* Errors.swift in Sources */,
+				54325B1B2CAC4DEC00346FB7 /* BucketedDiastolicBloodPressure.swift in Sources */,
+				54325B1D2CADB4CA00346FB7 /* BucketedSleep.swift in Sources */,
 				3774C8D71D20C65F0000B3F3 /* RCTAppleHealthKit+Methods_Fitness.m in Sources */,
+				549AC6472C91B4B5005B8517 /* BucketedSteps.swift in Sources */,
+				54500EB52C8A0FB800B03A3E /* RCTAppleHealthKit+BucketedQueries.m in Sources */,
 				58C81E6F1F84F6970005DD48 /* RCTAppleHealthKit+Methods_Activity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +410,7 @@
 		3774C8971D2092F20000B3F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../react-native/React/**",
 					"$(SRCROOT)/../../React/**",
@@ -342,12 +422,16 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RCTAppleHealthKit/RCTAppleHealthKit-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		3774C8981D2092F20000B3F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../react-native/React/**",
 					"$(SRCROOT)/../../React/**",
@@ -359,6 +443,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RCTAppleHealthKit/RCTAppleHealthKit-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

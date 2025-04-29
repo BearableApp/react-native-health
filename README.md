@@ -2,18 +2,18 @@
 
 # React Native Health
 
-A React Native package to interact with Apple HealthKit for iOS.
+A React Native package to interact with Apple HealthKit for iOS. Originally maintained with ❤️ by [AE Studio](https://ae.studio) but it has been heavily adapted for [Bearable](https://github.com/BearableApp/client-bearable).
+
+This package allows access to health & fitness data exposed by Apple Healthkit and returns data in the specific format to Bearable's need. It still contains the original functions however this documentation explains the custom bearable functionality. You can explore the original docs [here](docs/original/README.md).
 
 ## Getting Started
 
-> 🚨 Expo: This package is not available in the [Expo Go](https://expo.io/client) app. Learn how you can use it with [custom dev clients](/docs/Expo.md).
-
 ### Automatic Installation
 
-1. Install the react-native-health package from [npm](https://www.npmjs.com/package/react-native-health)
+1. Install the react-native-health package from the [github repo](https://github.com/BearableApp/react-native-health).
 
 ```
-yarn add react-native-health
+yarn add https://github.com/BearableApp/react-native-health
 ```
 
 2. If you are using [CocoaPods](https://cocoapods.org/) you can run the following
@@ -51,6 +51,8 @@ To enable access to clinical data types, check the `Clinical Health Records` box
 
 ## Usage
 
+### Permissions
+
 In order to start collecting or saving data to HealthKit, you need to request
 the user's permissions for the given data types. It can be done in the following
 way
@@ -76,199 +78,9 @@ AppleHealthKit.initHealthKit(permissions, (error: string) => {
     console.log('[ERROR] Cannot grant permissions!')
   }
 
-  /* Can now read or write to HealthKit */
-
-  const options = {
-    startDate: new Date(2020, 1, 1).toISOString(),
-  }
-
-  AppleHealthKit.getHeartRateSamples(
-    options,
-    (callbackError: string, results: HealthValue[]) => {
-      /* Samples are now collected from HealthKit */
-    },
-  )
+  /* Can now read from HealthKit */
 })
 ```
-
-### Background Processing
-
-For background capabilities, Apple allows developers to setup long running observer
-queries for the health types needed.
-
-To setup that in your app, in XCode open your `ios/AppDelegate.m` file and add the
-following statements:
-
-```objective-c
-#import "AppDelegate.h"
-
-...
-
-/* Add the library import at the top of AppDelegate.m */
-#import "RCTAppleHealthKit.h"
-
-...
-
-@implementation AppDelegate
-
-- (BOOL)application:(UIApplication *)application
-    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self
-                                            launchOptions:launchOptions];
-
-  ...
-
-  /* Add Background initializer for HealthKit  */
-  [[RCTAppleHealthKit new] initializeBackgroundObservers:bridge];
-
-  ...
-
-  return YES;
-}
-```
-
-After that you can start listening for data updates using the React Native
-client. For more information, see [background observers](/docs/background.md).
-
-## Documentation
-
-There is a gitbook version for the documentation on this [link](https://docs.react-native-health.com/).
-
-All the documentation is under the [docs](/docs) folder. Additionally,
-they are splitted in the following categories
-
-### Constants
-
-- [Activities](/docs/activities.md)
-- [Observers](/docs/observers.md)
-- [Permissions](/docs/permissions.md)
-- [Units](/docs/units.md)
-
-### Base Methods
-
-- [isAvailable](/docs/isAvailable.md)
-- [initHealthKit](/docs/initHealthKit.md)
-- [getAuthStatus](/docs/getAuthStatus.md)
-
-### Background Methods
-
-- [background observers](/docs/background.md)
-- [initStepCountObserver](/docs/initStepCountObserver.md) - _DEPRECATED_
-- [setObserver](/docs/setObserver.md) - _DEPRECATED_
-
-### Activity Methods
-
-- [getActiveEnergyBurned](/docs/getActiveEnergyBurned.md)
-- [getBasalEnergyBurned](/docs/getBasalEnergyBurned.md)
-- [getAppleStandTime](/docs/getAppleStandTime.md)
-
-### Body Methods
-
-- [getLatestHeight](/docs/getLatestHeight.md)
-- [getLatestWeight](/docs/getLatestWeight.md)
-- [getHeightSamples](/docs/getHeightSamples.md)
-- [getWeightSamples](/docs/getWeightSamples.md)
-- [getBodyTemperatureSamples](/docs/getBodyTemperatureSamples.md)
-- [getLatestBodyFatPercentage](/docs/getLatestBodyFatPercentage.md)
-- [getBodyFatPercentageSamples](/docs/getBodyFatPercentageSamples.md)
-- [getLatestLeanBodyMass](/docs/getLatestLeanBodyMass.md)
-- [getLeanBodyMassSamples](/docs/getLeanBodyMassSamples.md)
-- [saveHeight](/docs/saveHeight.md)
-- [saveWeight](/docs/saveWeight.md)
-- [saveBodyFatPercentage](/docs/saveBodyFatPercentage.md)
-- [saveBodyTemperature](/docs/saveBodyTemperature.md)
-- [saveLeanBodyMass](/docs/saveLeanBodyMass.md)
-
-### Characteristic Methods
-
-- [getBiologicalSex](/docs/getBiologicalSex.md)
-- [getDateOfBirth](/docs/getDateOfBirth.md)
-
-### Clinical Records Methods
-
-- [getClinicalRecords](/docs/getClinicalRecords.md)
-
-### Dietary Methods
-
-- [getEnergyConsumedSamples](/docs/getEnergyConsumedSamples.md)
-- [getProteinSamples](/docs/getProteinSamples.md)
-- [getTotalFatSamples](/docs/getTotalFatSamples.md)
-- [saveFood](/docs/saveFood.md)
-- [saveWater](/docs/saveWater.md)
-- [getWater](/docs/getWater.md)
-
-### Fitness Methods
-
-- [getDailyStepCountSamples](/docs/getDailyStepCountSamples.md)
-- [getStepCount](/docs/getStepCount.md)
-- [getSamples](docs/getSamples.md)
-- [getDailyDistanceWalkingRunningSamples](/docs/getDailyDistanceWalkingRunningSamples.md)
-- [getDistanceWalkingRunning](/docs/getDistanceWalkingRunning.md)
-- [getDailyDistanceSwimmingSamples](/docs/getDailyDistanceSwimmingSamples.md)
-- [getDistanceSwimming](/docs/getDistanceSwimming.md)
-- [getDailyDistanceCyclingSamples](/docs/getDailyDistanceCyclingSamples.md)
-- [getDistanceCycling](/docs/getDistanceCycling.md)
-- [getDailyFlightsClimbedSamples](/docs/getDailyFlightsClimbedSamples.md)
-- [getFlightsClimbed](/docs/getFlightsClimbed.md)
-- [saveSteps](/docs/saveSteps.md)
-- [saveWalkingRunningDistance](/docs/saveWalkingRunningDistance.md)
-
-### Hearing Methods
-
-- [getEnvironmentalAudioExposure](/docs/getEnvironmentalAudioExposure.md)
-- [getHeadphoneAudioExposure](/docs/getHeadphoneAudioExposure.md)
-
-### Lab Tests Methods
-
-- [getBloodAlcoholContentSamples](/docs/getBloodAlcoholContentSamples.md)
-- [getBloodGlucoseSamples](/docs/getBloodGlucoseSamples.md)
-- [getLatestBloodAlcoholContent](/docs/getLatestBloodAlcoholContent.md)
-- [saveBloodAlcoholContent](/docs/saveBloodAlcoholContent.md)
-- [saveBloodGlucoseSample](/docs/saveBloodGlucoseSample.md)
-- [deleteBloodGlucoseSample](/docs/deleteBloodGlucoseSample.md)
-
-### Nutrition
-
-- [getCarbohydratesSamples](/docs/getCarbohydratesSamples.md)
-- [saveCarbohydratesSample](/docs/saveCarbohydratesSample.md)
-- [deleteCarbohydratesSample](/docs/deleteCarbohydratesSample.md)
-
-### Mindfulness Methods
-
-- [getMindfulSession](docs/getMindfulSession.md)
-- [saveMindfulSession](/docs/saveMindfulSession.md)
-
-### Sleep Methods
-
-- [getSleepSamples](/docs/getSleepSamples.md)
-
-#### Vitals Methods
-
-- [getBloodPressureSamples](/docs/getBloodPressureSamples.md)
-- [getElectrocardiogramSamples](/docs/getElectrocardiogramSamples.md)
-- [getHeartRateSamples](/docs/getHeartRateSamples.md)
-- [getHeartRateVariabilitySamples](/docs/getHeartRateVariabilitySamples.md)
-- [getHeartbeatSeriesSamples](/docs/getHeartbeatSeriesSamples.md)
-- [getOxygenSaturationSamples](/docs/getOxygenSaturationSamples.md)
-- [getRestingHeartRateSamples](/docs/getRestingHeartRateSamples.md)
-- [getVo2MaxSamples](/docs/getVo2MaxSamples.md)
-- [getLatestBmi](/docs/getLatestBmi.md)
-- [getBmiSamples](/docs/getBmiSamples.md)
-- [getRespiratoryRateSamples](/docs/getRespiratoryRateSamples.md)
-- [getWalkingHeartRateAverage](/docs/getWalkingHeartRateAverage.md)
-- [saveBmi](/docs/saveBmi.md)
-
-#### Workout Methods
-
-- [getSamples](docs/getSamples.md)
-- [getAnchoredWorkouts](/docs/getAnchoredWorkouts.md)
-- [saveWorkout](/docs/saveWorkout.md)
-- [getWorkoutRouteSamples](/docs/getWorkoutRouteSamples.md)
-
-## Additional Information
-
-### Permissions
 
 Due to Apple's privacy model, if a user has previously denied a
 specific permission they will not be prompted again for that permission.
@@ -281,32 +93,105 @@ specific permission or add the permission to the options object when
 initializing the library.
 
 If extra read or write permissions are added to the options object, the
-app will request for user's permission to them when the library is
+app will request the user's permission when the library is
 initialized again.
 
-### Manual Installation
+### Reading Data
 
-1. Run `yarn add react-native-health`
-2. In XCode, in the project navigator, right-click `Libraries` ➜ `Add Files to [your project's name]`
-3. Go to `node_modules` ➜ `react-native-health` and add `RCTAppleHealthkit.xcodeproj`
-4. In XCode, in the project navigator, select your project. Add `libRCTAppleHealthkit.a`
-   to your project's `Build Phases` ➜ `Link Binary With Libraries`
-5. Click `RCTAppleHealthkit.xcodeproj` in the project navigator and go
-   the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic').
-   In the `Search Paths` section, look for `Header Search Paths` and make sure
-   it contains both `$(SRCROOT)/../../react-native/React`
-   and `$(SRCROOT)/../../../React` - mark both as `recursive`.
-6. Enable Healthkit in your application's `Capabilities`
-   ![](https://i.imgur.com/Ql1kXCg.png 'Xcode Capabilities Section')
-7. Compile and run
+#### `readBucketedQuantity`
+
+This function reads data for a record type and buckets it into intervals from the start date provided.
+
+```typescript
+import AppleHealthKit, { BucketedReadOptions } from 'react-native-health'
+
+const options: BucketedReadOptions = {
+  startTime: '2024-01-01 00:00:00.000', // Local time
+  endTime: '2024-02-01 00:00:00.000', // Local time
+  bucketPeriod: 'day',
+  unit: 'pound',
+}
+
+const records = await AppleHealthKit.readBucketedQuantity('WEIGHT', options)
+
+// Expected record format
+const expectedRecords = [
+  {
+    dateKey: '20240101',
+    entry: {
+      type: 'WEIGHT',
+      value: '134', // See table below for expected value format and units
+      family: 'HEALTH',
+    },
+  },
+]
+```
+
+The start and end times should be local times and the bucket period will cover the period from the start time. For example if your start date was at 12 noon with an bucket period of a day it would cover the interval between 12 noon of the first date and 12 noon on the next day. Bucket periods can be `day`, `month` or `year`. Units provided are specific to their record type, see the table below for the available record type, its value format and their units.
+
+| Record Type            | Value Format                       | Units (default first)     |
+| ---------------------- | ---------------------------------- | ------------------------- |
+| STEPS                  | `'{total}'`                        | `count`                   |
+| WEIGHT                 | `'{latest}'`                       | `kg` or `pound`           |
+| HEART                  | `'{min}/{avg}/{max}'`              | `bpm`                     |
+| PRESSURE               | `'{systolic_avg}/{diastolic_avg}'` | `mmhg`                    |
+| RESTING_HEART_RATE     | `'{avg}'`                          | `bpm`                     |
+| BODY_TEMPERATURE       | `'{avg}'`                          | `celsius` or `fahrenheit` |
+| HEART_RATE_VARIABILITY | `'{avg}'`                          | `ms`                      |
+
+#### `readBucketedSleep`
+
+This function reads data for a sleep samples and buckets it into intervals from the start date provided. Since sleep is health kit [category type](https://developer.apple.com/documentation/healthkit/hkcategorytype) it has been handled as a different function.
+
+```typescript
+import AppleHealthKit, { BucketedReadOptions } from 'react-native-health'
+
+const options: BucketedReadOptions = {
+  startTime: '2024-01-01 00:00:00.000', // Local time
+  endTime: '2024-02-01 00:00:00.000', // Local time
+}
+
+const records = await AppleHealthKit.readBucketedSleep(options)
+
+// Expected record format
+const expectedRecords = [
+  {
+    dateKey: '20240101',
+    entry: {
+      type: 'SLEEP',
+      value: '7:30', // h:mm
+      family: 'HEALTH',
+      timesInBed: {
+        inBedAt: '2023-12-31 23:55:00.000',
+        outOfBedAt: '2024-01-01 09:30:00.000',
+      },
+      sleepTimes: {
+        fellAsleepAt: '2024-01-01 00:30:00.000',
+        wokeUpAt: '2024-01-01 08:00:00.000',
+      },
+    },
+  },
+]
+```
+
+The start and end times should be local times and the bucket period will cover the period from the start time. Bucket periods can only be `day`. The value is the hours and minutes asleep.
 
 ## Contributing
 
-We appreciate any additional request and/or contribution to `react-native-health`.
-The [issues](https://github.com/agencyenterprise/react-native-health/issues) tracker
-is used to keep a list of features and bugs to be worked on. Please see our
-[contributing documentation](https://github.com/agencyenterprise/react-native-health/blob/master/CONTRIBUTING.md)
-for some tips on getting started.
+### Adding a New Record Type
+
+The `readBucketedQuantity` can be extended easily to add new record types. These record types need to be a health kit [quantity type](https://developer.apple.com/documentation/healthkit/hkquantitytype).
+
+1. Update the `RecordType` with the new health type in _index.d.ts_
+2. Update the `RecordType` enum with the the new health type in _Constants.swift_
+3. Create a new bucketed class called `Bucketed{HealthType}.swfit`. Make sure it extends the _BucketedQueryType.swift_ class and has the required functions.
+   1. `quantityType` - this should return the health kit defined quantity type
+   2. `queryOptions` - this should return a list of [statistics options](https://developer.apple.com/documentation/healthkit/hkstatisticsoptions) such as `.discreteAverage`
+   3. `statisticsUnit` - this should return the heath kit [unit](https://developer.apple.com/documentation/healthkit/hkunit) based on any units that are passed in via the options
+   4. `statisticsValue` - this should return the string value for the record type
+4. Update the `queryTypeFromRecordType` in _Helpers.swift_. Add a new case for the new record type and return a list with the new bucketed class created in step 3. It's possible to use multiple types which returns a value with the values from each class separated by a `/`, See the blood pressure record type as an example.
+
+If your record type is not a quantity type then you will likely need to create a new bucketed function to handle it. Sleep is a category type and has very specific data values hence why it's been done separately. This function could be extended in the future to become more generic for other category types similarly to the structure of quantity types.
 
 ## References
 
@@ -314,6 +199,6 @@ for some tips on getting started.
 
 ## Acknowledgement
 
-> _This package is a fork of [rn-apple-healthkit](https://github.com/terrillo/rn-apple-healthkit)_
+> _This package is a fork of [brandonballinger/react-native-health](https://github.com/brandonballinger/react-native-health)_ which is a fork of [agencyenterprise/react-native-health](https://github.com/agencyenterprise/react-native-health) which is a fork of [rn-apple-healthkit](https://github.com/terrillo/rn-apple-healthkit)\_
 
 > _This package also inherits additional features from [Nutrisense](https://www.nutrisense.io/) fork_
